@@ -1,8 +1,6 @@
 .btn {
-    background-color: $green;
     font-size: toRem(14);
     font-weight: 600;
-    color: $white;
     letter-spacing: toRem(1.35);
     line-height: 1.36;
     display: flex;
@@ -10,8 +8,43 @@
     align-items: center;
     flex-shrink: 0;
     transition: all 0.3s ease;
-    // @include adaptiveValue("height", 65, 50, 0, 600, 320);
+    
 }
 .btn:hover {
     background-color: $lightGreen;
+}
+
+.btn-green {
+    background-color: $green;
+    color: $white;
+}
+.btn-white {
+    background-color: $white;
+    color: $black;
+}
+.btn-big {
+    @include adaptiveValue("height", 65, 50, 0, 600, 320);
+}
+
+.title {  
+    @include adaptiveValue("font-size", 34, 28, 0, 600, 320);
+    font-weight: 400;
+    line-height: 1.18;
+}
+.title-black {
+    color: $black;
+}
+.title-white {
+    color: $white;
+}
+.title-center {
+    text-align: center;
+}
+.title-left {
+    text-align: left;
+}
+
+.text {
+    font-weight: 400;
+    line-height: 1.75;
 }

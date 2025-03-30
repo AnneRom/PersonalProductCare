@@ -1,3 +1,67 @@
 //====================================================================================================
+.hero {
+    background: url('../../img/Hero-bg.jpg') no-repeat center;
+    background-size: cover;
+    @include adaptiveValue("height", 586, 314, 0, 1400, 600);
+    position: relative;
 
+    &__container {
+        @include adaptiveValue("padding-top", 184, 48, 0, 1400, 600);
+        @include adaptiveValue("padding-bottom", 63, 44, 0, 600, 320);
+    }
+    &__content {
+        @include adaptiveValue("width", 420, 491, 0, 1400, 600);
+        color: $white;
+    }
+    &__title {
+        @include adaptiveValue("font-size", 48, 32, 0, 1400, 600);
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 1.19;
+    }
+    &__title:not(:last-child){
+        @include adaptiveValue("margin-bottom", 35, 15, 0, 1400, 320);
+    }
+    &__text {}
+      
+    &__text:not(:last-child){
+        @include adaptiveValue("margin-bottom", 35, 22, 0, 1400, 320);
+    }
+    &__btn {
+        width: toRem(144);
+        @include adaptiveValue("height", 66, 58, 0, 1400, 600);
+    }
+}
+.hero-bg {
+    display: none;
+}
+
+@media (max-width: toRem(600)) {
+    .hero {
+        background: $darkBeige;
+        &__container {
+            @include adaptiveValue("padding-top", 48, 30, 0, 600, 320);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__content {
+            @include adaptiveValue("width", 491, 263, 0, 600, 320);
+            color: $black;
+            text-align: center;
+        }
+        &__btn {
+            background-color: $green;
+            color: $white;
+            width: 100%;
+        }
+    }
+    .hero-bg {
+        display: block;
+        width: 100%;
+        height: toRem(367);
+        background: url('../../img/Hero-bg.jpg') no-repeat center;
+        background-size: cover;
+    }
+}
 //====================================================================================================
