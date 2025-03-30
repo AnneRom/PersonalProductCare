@@ -1,1 +1,17 @@
-// Заголовки, загальні БЕМ блоки та інше...
+.btn {
+    background-color: $green;
+    font-size: toRem(14);
+    font-weight: 600;
+    color: $white;
+    letter-spacing: toRem(1.35);
+    line-height: 1.36;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    // @include adaptiveValue("height", 65, 50, 0, 600, 320);
+}
+.btn:hover {
+    background-color: $lightGreen;
+}
