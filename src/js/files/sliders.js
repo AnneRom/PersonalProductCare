@@ -8,7 +8,7 @@
 // При необхідності підключаємо додаткові модулі слайдера, вказуючи їх у {} через кому
 // Приклад: { Navigation, Autoplay }
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 /*
 Основні модулі слайдера:
 Navigation, Pagination, Autoplay, 
@@ -24,6 +24,51 @@ import "../../scss/base/swiper.scss";
 // Повний набір стилів з node_modules
 // import 'swiper/css';
 
+let companiesSlider = null;
+
+function initCompaniseSlider() {
+	const swiperCompanies = document.getElementById('companies-slider');
+	const wrapper = document.querySelector('.companies__container');
+	const sliders = wrapper.querySelectorAll('.company');
+
+	const isMobile = window.innerWidth <= 800;
+
+	if (!swiperCompanies || !wrapper || !sliders) return;
+
+	if (isMobile && !companiesSlider) 
+		{
+			swiperCompanies.classList.add('swiper');
+			wrapper.classList.add('swiper-wrapper');
+			sliders.forEach(slide => slide.classList.add('swiper-slide'));
+
+			companiesSlider = new Swiper('#companies-slider', {
+
+			modules: [Pagination],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 0,
+			speed: 800,
+			loop: true,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			on: {
+
+			}
+		});
+
+		} else if (!isMobile && companiesSlider) {
+			companiesSlider.destroy(true, true);
+			companiesSlider = null;
+
+			swiperCompanies.classList.remove('swiper');
+			wrapper.classList.remove('swiper-wrapper');
+			sliders.forEach(slide => slide.classList.remove('swiper-slide'));
+		}
+}
+
 // Ініціалізація слайдерів
 function initSliders() {
 	// Список слайдерів
@@ -33,7 +78,7 @@ function initSliders() {
 		new Swiper('.swiper', { // Вказуємо склас потрібного слайдера
 			// Підключаємо модулі слайдера
 			// для конкретного випадку
-			modules: [Navigation],
+			modules: [Pagination],
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
@@ -43,7 +88,7 @@ function initSliders() {
 
 			//touchRatio: 0,
 			//simulateTouch: false,
-			//loop: true,
+			loop: true,
 			//preloadImages: false,
 			//lazy: true,
 
@@ -57,12 +102,12 @@ function initSliders() {
 			*/
 
 			// Пагінація
-			/*
+	
 			pagination: {
 				el: '.swiper-pagination',
 				clickable: true,
 			},
-			*/
+		
 
 			// Скроллбар
 			/*
@@ -73,10 +118,10 @@ function initSliders() {
 			*/
 
 			// Кнопки "вліво/вправо"
-			navigation: {
-				prevEl: '.swiper-button-prev',
-				nextEl: '.swiper-button-next',
-			},
+			// navigation: {
+			// 	prevEl: '.swiper-button-prev',
+			// 	nextEl: '.swiper-button-next',
+			// },
 			/*
 			// Брейкпоінти
 			breakpoints: {
@@ -137,7 +182,12 @@ function initSlidersScroll() {
 
 window.addEventListener("load", function (e) {
 	// Запуск ініціалізації слайдерів
-	initSliders();
+	// initSliders();
 	// Запуск ініціалізації скролла на базі слайдера (за класом swiper_scroll)
 	//initSlidersScroll();
+	initCompaniseSlider();
 });
+
+window.addEventListener('resize', () => {
+	initCompaniseSlider();
+})

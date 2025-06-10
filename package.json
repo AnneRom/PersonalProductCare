@@ -44,7 +44,6 @@
 		"gulp-fonter-fix": "latest",
 		"gulp-group-css-media-queries": "latest",
 		"gulp-if": "latest",
-		"gulp-imagemin": "latest",
 		"gulp-newer": "latest",
 		"gulp-notify": "latest",
 		"gulp-plumber": "latest",
