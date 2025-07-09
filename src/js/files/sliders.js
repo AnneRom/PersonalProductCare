@@ -30,6 +30,7 @@ function initCompaniseSlider() {
 	const swiperCompanies = document.getElementById('companies-slider');
 	const wrapper = document.querySelector('.companies__container');
 	const sliders = wrapper.querySelectorAll('.company');
+	const pagination = swiperCompanies.querySelector('.swiper-pagination');
 
 	const isMobile = window.innerWidth <= 800;
 
@@ -40,6 +41,8 @@ function initCompaniseSlider() {
 			swiperCompanies.classList.add('swiper');
 			wrapper.classList.add('swiper-wrapper');
 			sliders.forEach(slide => slide.classList.add('swiper-slide'));
+
+			if (pagination) pagination.classList.add('swiper-pagination-visible');
 
 			companiesSlider = new Swiper('#companies-slider', {
 
@@ -66,6 +69,58 @@ function initCompaniseSlider() {
 			swiperCompanies.classList.remove('swiper');
 			wrapper.classList.remove('swiper-wrapper');
 			sliders.forEach(slide => slide.classList.remove('swiper-slide'));
+
+			if (pagination) pagination.classList.remove('swiper-pagination-visible');
+		}
+}
+
+let sellerSlider = null;
+
+function initSellerSlider() {
+	const swiperSeller = document.getElementById('best-sellers-slider');
+	const wrapper = document.querySelector('.product-list__container');
+	const sliders = wrapper.querySelectorAll('.product-card-slide');
+	const pagination = swiperSeller.querySelector('.swiper-pagination');
+
+	const isMobile = window.innerWidth <= 1200;
+
+	if (!swiperSeller || !wrapper || !sliders) return;
+
+	if (isMobile && !sellerSlider) 
+		{
+			swiperSeller.classList.add('swiper');
+			wrapper.classList.add('swiper-wrapper');
+			sliders.forEach(slide => slide.classList.add('swiper-slide'));
+
+			if (pagination) pagination.classList.add('swiper-pagination-visible');
+
+			sellerSlider = new Swiper(swiperSeller, {
+
+			modules: [Pagination],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 'auto',
+			spaceBetween: 0,
+			speed: 800,
+			loop: true,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			on: {
+
+			}
+		});
+
+		} else if (!isMobile && sellerSlider) {
+			sellerSlider.destroy(true, true);
+			sellerSlider = null;
+
+			swiperSeller.classList.remove('swiper');
+			wrapper.classList.remove('swiper-wrapper');
+			sliders.forEach(slide => slide.classList.remove('swiper-slide'));
+
+			if (pagination) pagination.classList.remove('swiper-pagination-visible');
 		}
 }
 
@@ -186,8 +241,10 @@ window.addEventListener("load", function (e) {
 	// Запуск ініціалізації скролла на базі слайдера (за класом swiper_scroll)
 	//initSlidersScroll();
 	initCompaniseSlider();
+	initSellerSlider();
 });
 
 window.addEventListener('resize', () => {
 	initCompaniseSlider();
+	initSellerSlider();
 })
