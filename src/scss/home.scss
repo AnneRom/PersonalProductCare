@@ -247,7 +247,6 @@
 
 .product-list__container:not(.swiper-wrapper) {
     display: flex;
-    // flex-wrap: wrap;
     justify-content: center;
     gap: toRem(30);
 }
