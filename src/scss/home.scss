@@ -327,3 +327,9 @@
 }
 
 /* #endregion best-sellers*/
+
+.promo {
+    background: url('../../img/bg-promo.jpg') no-repeat center;
+    background-size: cover;
+    @include adaptiveValue("height", 579, 420, 0, 1400, 320);
+}
