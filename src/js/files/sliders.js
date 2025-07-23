@@ -24,105 +24,105 @@ import "../../scss/base/swiper.scss";
 // Повний набір стилів з node_modules
 // import 'swiper/css';
 
-let companiesSlider = null;
+// let companiesSlider = null;
 
-function initCompaniseSlider() {
-	const swiperCompanies = document.getElementById('companies-slider');
-	const wrapper = document.querySelector('.companies__container');
-	const sliders = wrapper.querySelectorAll('.company');
-	const pagination = swiperCompanies.querySelector('.swiper-pagination');
+// function initCompaniseSlider() {
+// 	const swiperCompanies = document.getElementById('companies-slider');
+// 	const wrapper = document.querySelector('.companies__container');
+// 	const sliders = wrapper.querySelectorAll('.company');
+// 	const pagination = swiperCompanies.querySelector('.swiper-pagination');
 
-	const isMobile = window.innerWidth <= 800;
+// 	const isMobile = window.innerWidth <= 800;
 
-	if (!swiperCompanies || !wrapper || !sliders) return;
+// 	if (!swiperCompanies || !wrapper || !sliders) return;
 
-	if (isMobile && !companiesSlider) 
-		{
-			swiperCompanies.classList.add('swiper');
-			wrapper.classList.add('swiper-wrapper');
-			sliders.forEach(slide => slide.classList.add('swiper-slide'));
+// 	if (isMobile && !companiesSlider) 
+// 		{
+// 			swiperCompanies.classList.add('swiper');
+// 			wrapper.classList.add('swiper-wrapper');
+// 			sliders.forEach(slide => slide.classList.add('swiper-slide'));
 
-			if (pagination) pagination.classList.add('swiper-pagination-visible');
+// 			if (pagination) pagination.classList.add('swiper-pagination-visible');
 
-			companiesSlider = new Swiper('#companies-slider', {
+// 			companiesSlider = new Swiper('#companies-slider', {
 
-			modules: [Pagination],
-			observer: true,
-			observeParents: true,
-			slidesPerView: 1,
-			spaceBetween: 0,
-			speed: 800,
-			loop: true,
-			pagination: {
-				el: '.swiper-pagination',
-				clickable: true,
-			},
-			on: {
+// 			modules: [Pagination],
+// 			observer: true,
+// 			observeParents: true,
+// 			slidesPerView: 1,
+// 			spaceBetween: 0,
+// 			speed: 800,
+// 			loop: true,
+// 			pagination: {
+// 				el: '.swiper-pagination',
+// 				clickable: true,
+// 			},
+// 			on: {
 
-			}
-		});
+// 			}
+// 		});
 
-		} else if (!isMobile && companiesSlider) {
-			companiesSlider.destroy(true, true);
-			companiesSlider = null;
+// 		} else if (!isMobile && companiesSlider) {
+// 			companiesSlider.destroy(true, true);
+// 			companiesSlider = null;
 
-			swiperCompanies.classList.remove('swiper');
-			wrapper.classList.remove('swiper-wrapper');
-			sliders.forEach(slide => slide.classList.remove('swiper-slide'));
+// 			swiperCompanies.classList.remove('swiper');
+// 			wrapper.classList.remove('swiper-wrapper');
+// 			sliders.forEach(slide => slide.classList.remove('swiper-slide'));
 
-			if (pagination) pagination.classList.remove('swiper-pagination-visible');
-		}
-}
+// 			if (pagination) pagination.classList.remove('swiper-pagination-visible');
+// 		}
+// }
 
-let sellerSlider = null;
+// let sellerSlider = null;
 
-function initSellerSlider() {
-	const swiperSeller = document.getElementById('best-sellers-slider');
-	const wrapper = document.querySelector('.product-list__container');
-	const sliders = wrapper.querySelectorAll('.product-card-slide');
-	const pagination = swiperSeller.querySelector('.swiper-pagination');
+// function initSellerSlider() {
+// 	const swiperSeller = document.getElementById('best-sellers-slider');
+// 	const wrapper = document.querySelector('.product-list__container');
+// 	const sliders = wrapper.querySelectorAll('.product-card-slide');
+// 	const pagination = swiperSeller.querySelector('.swiper-pagination');
 
-	const isMobile = window.innerWidth <= 1200;
+// 	const isMobile = window.innerWidth <= 1200;
 
-	if (!swiperSeller || !wrapper || !sliders) return;
+// 	if (!swiperSeller || !wrapper || !sliders) return;
 
-	if (isMobile && !sellerSlider) 
-		{
-			swiperSeller.classList.add('swiper');
-			wrapper.classList.add('swiper-wrapper');
-			sliders.forEach(slide => slide.classList.add('swiper-slide'));
+// 	if (isMobile && !sellerSlider) 
+// 		{
+// 			swiperSeller.classList.add('swiper');
+// 			wrapper.classList.add('swiper-wrapper');
+// 			sliders.forEach(slide => slide.classList.add('swiper-slide'));
 
-			if (pagination) pagination.classList.add('swiper-pagination-visible');
+// 			if (pagination) pagination.classList.add('swiper-pagination-visible');
 
-			sellerSlider = new Swiper(swiperSeller, {
+// 			sellerSlider = new Swiper(swiperSeller, {
 
-			modules: [Pagination],
-			observer: true,
-			observeParents: true,
-			slidesPerView: 'auto',
-			spaceBetween: 0,
-			speed: 800,
-			loop: true,
-			pagination: {
-				el: '.swiper-pagination',
-				clickable: true,
-			},
-			on: {
+// 			modules: [Pagination],
+// 			observer: true,
+// 			observeParents: true,
+// 			slidesPerView: 'auto',
+// 			spaceBetween: 0,
+// 			speed: 800,
+// 			loop: true,
+// 			pagination: {
+// 				el: '.swiper-pagination',
+// 				clickable: true,
+// 			},
+// 			on: {
 
-			}
-		});
+// 			}
+// 		});
 
-		} else if (!isMobile && sellerSlider) {
-			sellerSlider.destroy(true, true);
-			sellerSlider = null;
+// 		} else if (!isMobile && sellerSlider) {
+// 			sellerSlider.destroy(true, true);
+// 			sellerSlider = null;
 
-			swiperSeller.classList.remove('swiper');
-			wrapper.classList.remove('swiper-wrapper');
-			sliders.forEach(slide => slide.classList.remove('swiper-slide'));
+// 			swiperSeller.classList.remove('swiper');
+// 			wrapper.classList.remove('swiper-wrapper');
+// 			sliders.forEach(slide => slide.classList.remove('swiper-slide'));
 
-			if (pagination) pagination.classList.remove('swiper-pagination-visible');
-		}
-}
+// 			if (pagination) pagination.classList.remove('swiper-pagination-visible');
+// 		}
+// }
 
 // Ініціалізація слайдерів
 function initSliders() {
@@ -235,16 +235,90 @@ function initSlidersScroll() {
 	}
 }
 
+let slidersStore = {};
+
+function initResponsiveSlider({
+	sliderId,
+	wrapperSelector,
+	slideSelector,
+	widthBreakpoint = 800,
+	slidesPerView = 1,
+	storeKey
+}) {
+	const swiperEl = document.getElementById(sliderId);
+	const wrapper = document.querySelector(wrapperSelector);
+	const slides = wrapper?.querySelectorAll(slideSelector);
+	const pagination = swiperEl?.querySelector('.swiper-pagination');
+
+	const isMobile = window.innerWidth <= widthBreakpoint;
+
+	if (!swiperEl || !wrapper || !slides) return;
+
+	const storedSlider = slidersStore[storeKey];
+
+	if (isMobile && !storedSlider) {
+		swiperEl.classList.add('swiper');
+		wrapper.classList.add('swiper-wrapper');
+		slides.forEach(slide => slide.classList.add('swiper-slide'));
+		if (pagination) pagination.classList.add('swiper-pagination-visible');
+
+		slidersStore[storeKey] = new Swiper(swiperEl, {
+			modules: [Pagination],
+			observer: true,
+			observeParents: true,
+			slidesPerView,
+			spaceBetween: 0,
+			speed: 800,
+			loop: true,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+		});
+	} else if (!isMobile && storedSlider) {
+		storedSlider.destroy(true, true);
+		slidersStore[storeKey] = null;
+
+		swiperEl.classList.remove('swiper');
+		wrapper.classList.remove('swiper-wrapper');
+		slides.forEach(slide => slide.classList.remove('swiper-slide'));
+		if (pagination) pagination.classList.remove('swiper-pagination-visible');
+	}
+}
+
+function initAllSliders() {
+	initResponsiveSlider({
+		sliderId: 'companies-slider',
+		wrapperSelector: '.companies__container',
+		slideSelector: '.company',
+		widthBreakpoint: 800,
+		slidesPerView: 1,
+		storeKey: 'companiesSlider',
+	});
+
+	initResponsiveSlider({
+		sliderId: 'best-sellers-slider',
+		wrapperSelector: '.product-list__container',
+		slideSelector: '.product-card-slide',
+		widthBreakpoint: 1200,
+		slidesPerView: 'auto',
+		storeKey: 'sellerSlider',
+	});
+}
+
 window.addEventListener("load", function (e) {
 	// Запуск ініціалізації слайдерів
 	// initSliders();
 	// Запуск ініціалізації скролла на базі слайдера (за класом swiper_scroll)
 	//initSlidersScroll();
-	initCompaniseSlider();
-	initSellerSlider();
+
+	// initCompaniseSlider();
+	//initSellerSlider();
+	initAllSliders();
 });
 
 window.addEventListener('resize', () => {
-	initCompaniseSlider();
-	initSellerSlider();
+	// initCompaniseSlider();
+	// initSellerSlider();
+	initAllSliders();
 })
