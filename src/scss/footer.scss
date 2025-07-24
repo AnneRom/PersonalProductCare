@@ -1,3 +1,132 @@
 //====================================================================================================
+.footer {
+    background-color: $beige;
+    @include adaptiveValue("padding-top", 54, 24, 0, 1400, 320);
+    @include adaptiveValue("padding-bottom", 31, 58, 0, 1400, 600);
 
-//====================================================================================================
+    &__container {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title {
+        @include adaptiveValue("padding-top", 54, 24, 0, 1400, 320);
+        color: $black;
+        font-size: 48px;
+        font-weight: 500;
+        line-height: 1.18;
+    }
+
+    &__nav { 
+        @include adaptiveValue("margin-top", 25, 20, 0, 1400, 320);
+        @include adaptiveValue("margin-bottom", 72, 26, 0, 1400, 320);
+    }
+
+
+    &__menu {
+        display: flex;
+        justify-content: center;
+        @include adaptiveValue("gap", 77, 60, 0, 1400, 600);
+        align-items: center;
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $black;
+        font-weight: 500;
+        line-height: 3.56;
+        border-bottom: 2px solid transparent;
+        transition: border-color 0.3s ease;
+        @include adaptiveValue("height", 57, 28, 0, 1400, 600);
+    }
+
+    li:hover {
+        border-bottom: 2px solid $green;
+    }
+}
+
+&__content{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: toRem(25);
+}
+
+&__form {
+    display: flex;
+    @include adaptiveValue("gap", 19, 10, 0, 1400, 320);
+    justify-content: center;
+
+    input {
+        @include adaptiveValue("width", 340, 251, 0, 1400, 600);
+        @include adaptiveValue("height", 65, 50, 0, 1400, 320);
+        padding: 23px;
+        border: 1px solid $green;
+        font-size: 14px;
+    }
+
+    button {
+        @include adaptiveValue("width", 165, 138, 0, 1400, 600);
+    }
+}
+
+&__socials {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: toRem(14);
+
+    img{
+        width: toRem(28);
+        height: toRem(28);
+    }
+}
+}
+
+@media(max-width: 600px) {
+.footer{
+    @include adaptiveValue("padding-bottom", 58, 28, 0, 600, 320);
+    &__menu{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 24px;
+        row-gap: 10px;
+    }
+
+    &__content{
+        flex-direction: column;
+    }
+
+    &__form{
+        flex-direction: column;
+
+        input{
+            // @include adaptiveValue("width", 251, 280, 0, 600, 320);
+            width: 100%;
+        }
+        
+        input::placeholder{
+            text-align: center;
+        }
+
+        button{
+            width: 100%;
+            height: toRem(50);
+        }
+    }
+
+    &__socials{
+        margin-top: toRem(24);
+    }
+}
+}
+
+@media(max-width: 320px){
+.footer{
+    &__socials{
+        justify-content: center;
+    }
+}   
+}
