@@ -187,15 +187,16 @@ function initResponsiveSlider({
 }
 
 function initAllSliders() {
-	initResponsiveSlider({
-		sliderId: 'companies-slider',
-		wrapperSelector: '.companies__container',
+	initResponsiveSlider({ 
+		//тут змінити класи для swiper на свої 
+		sliderId: 'companies-slider', 
+		wrapperSelector: '.companies__container', 
 		slideSelector: '.company',
 		widthBreakpoint: 800,
 		slidesPerView: 1,
 		storeKey: 'companiesSlider',
 	});
-
+	
 	initResponsiveSlider({
 		sliderId: 'best-sellers-slider',
 		wrapperSelector: '.product-list__container',
