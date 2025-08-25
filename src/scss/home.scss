@@ -1,6 +1,6 @@
 //====================================================================================================
 .hero {
-    background: url('../../img/Hero-bg.jpg') no-repeat center;
+    background: url('../img/Hero-bg.jpg') no-repeat center;
     background-size: cover;
     @include adaptiveValue("height", 586, 314, 0, 1400, 600);
 
@@ -59,7 +59,7 @@
         display: block;
         width: 100%;
         height: toRem(367);
-        background: url('../../img/Hero-bg.jpg') no-repeat center;
+        background: url('../img/Hero-bg.jpg') no-repeat center;
         background-size: cover;
     }
 }
@@ -329,7 +329,7 @@
 /* #endregion best-sellers*/
 
 .promo {
-    background: url('../../img/bg-promo.jpg') no-repeat center;
+    background: url('../img/bg-promo.jpg') no-repeat center;
     background-size: cover;
     @include adaptiveValue("height", 579, 420, 0, 1400, 320);
 }
